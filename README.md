@@ -1,18 +1,36 @@
 # wefund-dashboard
-Dashboard de suivi SI — TypeScript / React / Recharts
 
+Dashboard de suivi des indicateurs de performance — Angular / Express / PostgreSQL
 
+## Prérequis
+
+- Node.js
+- Docker (géré par le repo env parent)
+
+## Installation
+
+```bash
 npm install
+```
 
-lancer le serveur : node src/server.js
+## Lancer le projet
 
-lancer le dashboard : npm run start
+**Backend API :**
+```bash
+node server/index.js
+```
 
+**Frontend Angular :**
+```bash
+npm start
+```
 
+## Base de données
 
-lancer le docker : sudo docker compose up postgres
+La base PostgreSQL est gérée par le `docker-compose` du repo env parent.
 
-
-insérer les données : 
-cat init.sql | sudo docker exec -i we-fund-db psql -U postgres -d wefund_db
-cat seed.sql | sudo docker exec -i we-fund-db psql -U postgres -d wefund_db
+Pour insérer les données manuellement :
+```bash
+cat sql/init.sql | docker exec -i we-fund-db psql -U postgres -d wefund_db
+cat sql/seed.sql | docker exec -i we-fund-db psql -U postgres -d wefund_db
+```
