@@ -2,6 +2,13 @@
 
 Dashboard de suivi des indicateurs de performance — Angular / Express / PostgreSQL
 
+## Ports
+
+| Service | Port |
+|---|---|
+| API Express | 3000 |
+| Angular SSR | 4000 |
+
 ## Prérequis
 
 - Node.js

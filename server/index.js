@@ -5,13 +5,12 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
-// Configuration de connexion basée sur docker-compose.yaml
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'wefund_db',
-  password: 'password',
-  port: 5433,
+  user: process.env['DATABASE_USER'] || 'postgres',
+  host: process.env['DATABASE_HOST'] || 'localhost',
+  database: process.env['DATABASE_NAME'] || 'wefund_db',
+  password: process.env['DATABASE_PASSWORD'] || 'password',
+  port: parseInt(process.env['DATABASE_PORT'] || '5433'),
 });
 
 // Fonction pour récupérer et afficher les rôles (par exemple) dans la console
