@@ -1,95 +1,121 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-
-export interface BackendPoint {
-    timestamp: number;
-    campaigns: number;
-    collected: number;
-    success: number;
-}
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface RawDataPoint {
-    label: string;
-    value: number;
+  label: string;
+  value: number;
+}
+
+export interface CollectedPerDayResponse {
+  day: string;
+  total: number;
+}
+
+export interface ContributionsPerDayResponse {
+  day: string;
+  count: number;
+}
+
+export interface TotalCollectedResponse {
+  total: number;
+  startDate: string;
+  endDate: string;
+}
+
+export interface SuccessRateResponse {
+  rate: number;
+  total: number;
+  reussies: number;
+}
+
+export interface AvgResponse {
+  avg: number;
 }
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class IndicatorService {
-    constructor() { }
+  private readonly apiUrl = 'http://localhost:3000/api/stats';
 
-    getActiveCampaigns(startDate?: string, endDate?: string): Observable<RawDataPoint[]> {
-        const backendData = this.mockResultBack(startDate, endDate);
-        return of(this.adaptBackendData(backendData, 'campaigns'));
-    }
+  constructor(private http: HttpClient) {}
 
-    getTotalCollected(startDate?: string, endDate?: string): Observable<RawDataPoint[]> {
-        const backendData = this.mockResultBack(startDate, endDate);
-        return of(this.adaptBackendData(backendData, 'collected'));
-    }
+  // --- Montant total collecté sur la période ---
 
-    getGlobalSuccessRate(startDate?: string, endDate?: string): Observable<RawDataPoint[]> {
-        const backendData = this.mockResultBack(startDate, endDate);
-        return of(this.adaptBackendData(backendData, 'success'));
-    }
-
-    /**
-     * Simulates a backend response for a given range, 
-     * returning all indicator values for each point.
-     */
-    private mockResultBack(startDate?: string, endDate?: string): BackendPoint[] {
-        const start = startDate ? new Date(startDate) : new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-        const end = endDate ? new Date(endDate) : new Date();
-
-        const actualStart = start < end ? start : end;
-        const actualEnd = start < end ? end : start;
-
-        const data: BackendPoint[] = [];
-        const diffTime = Math.abs(actualEnd.getTime() - actualStart.getTime());
-        const numberOfPoints = 12;
-        const interval = diffTime / (numberOfPoints - 1);
-
-        for (let i = 0; i < numberOfPoints; i++) {
-            const timestamp = actualStart.getTime() + (interval * i);
-            const seed = timestamp;
-
-            data.push({
-                timestamp,
-                campaigns: Math.round(10 + Math.abs(Math.sin(seed * 0.0001)) * 40),
-                collected: Math.round(1000 + Math.abs(Math.cos(seed * 0.0001)) * 49000),
-                success: Math.round(50 + Math.abs(Math.sin(seed * 0.0002)) * 45)
-            });
-        }
-
-        return data;
-    }
-
-    /**       private getDataFromBack(startDate?: string, endDate?: string): Observable<BackendPoint[]> {
-    const params = { start: startDate, end: endDate };
-    return this.http.get<BackendPoint[]>(this.apiUrl, { params });
+  getTotalCollected(startDate?: string, endDate?: string): Observable<number> {
+    const params = this.buildParams(startDate, endDate);
+    return this.http
+      .get<TotalCollectedResponse>(`${this.apiUrl}/total-collected`, { params })
+      .pipe(map((data: TotalCollectedResponse) => data.total));
   }
-*/
 
+  // --- Story 2 : Montant collecté jour par jour ---
 
-    /**
-     * Adapts backend data into UI-friendly labels and extracts the specific indicator value.
-     * exemple : 
-     * {
-     *  "timestamp": 1741582800000, 
-     *  "campaigns": 15,
-     *  "collected": 12500.50,
-     *  "success": 68.5
-     * }
-     * va devenir => { "label": "10 mars", "value": 12500.50 }
-     */
-    private adaptBackendData(data: BackendPoint[], key: keyof Omit<BackendPoint, 'timestamp'>): RawDataPoint[] {
-        return data.map(point => {
-            const date = new Date(point.timestamp);
-            return {
-                label: date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }),
-                value: point[key] as number
-            };
-        });
-    }
+  getCollectedPerDay(startDate?: string, endDate?: string): Observable<RawDataPoint[]> {
+    const params = this.buildParams(startDate, endDate);
+    return this.http
+      .get<CollectedPerDayResponse[]>(`${this.apiUrl}/collected-per-day`, { params })
+      .pipe(
+        map((data: CollectedPerDayResponse[]) =>
+          data.map(d => ({
+            label: new Date(d.day).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }),
+            value: d.total,
+          }))
+        )
+      );
+  }
+
+  // --- Story 3 : Taux de succès global (KPI) ---
+
+  getSuccessRate(startDate?: string, endDate?: string): Observable<number> {
+    const params = this.buildParams(startDate, endDate);
+    return this.http
+      .get<SuccessRateResponse>(`${this.apiUrl}/success-rate`, { params })
+      .pipe(map((data: SuccessRateResponse) => data.rate));
+  }
+
+  // --- Story 4 : Contributions jour par jour ---
+
+  getContributionsPerDay(startDate?: string, endDate?: string): Observable<RawDataPoint[]> {
+    const params = this.buildParams(startDate, endDate);
+    return this.http
+      .get<ContributionsPerDayResponse[]>(`${this.apiUrl}/contributions-per-day`, { params })
+      .pipe(
+        map((data: ContributionsPerDayResponse[]) =>
+          data.map(d => ({
+            label: new Date(d.day).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }),
+            value: d.count,
+          }))
+        )
+      );
+  }
+
+  // --- Story 5 : Moy. contributions par campagne (KPI) ---
+
+  getAvgContributionsPerCampaign(startDate?: string, endDate?: string): Observable<number> {
+    const params = this.buildParams(startDate, endDate);
+    return this.http
+      .get<AvgResponse>(`${this.apiUrl}/avg-contributions-per-campaign`, { params })
+      .pipe(map((data: AvgResponse) => data.avg));
+  }
+
+  // --- Story 6 : Montant moyen par contribution (KPI) ---
+
+  getAvgAmountPerContribution(startDate?: string, endDate?: string): Observable<number> {
+    const params = this.buildParams(startDate, endDate);
+    return this.http
+      .get<AvgResponse>(`${this.apiUrl}/avg-amount-per-contribution`, { params })
+      .pipe(map((data: AvgResponse) => data.avg));
+  }
+
+  // --- Helper privé ---
+
+  private buildParams(startDate?: string, endDate?: string): Record<string, string> {
+    const params: Record<string, string> = {};
+    if (startDate) params['startDate'] = startDate;
+    if (endDate) params['endDate'] = endDate;
+    return params;
+  }
 }

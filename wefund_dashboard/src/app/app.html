@@ -1,4 +1,21 @@
 <style>
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 1000;
+    background: #1e293b;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 8px 0;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
   :host {
     --primary: #3b82f6;
     --background: #f8fafc;
@@ -52,7 +69,9 @@
   }
 </style>
 
-<main class="main">
+<a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+<main id="main-content" class="main">
   <header class="header">
     <h1>WeFund <span>Dashboard</span></h1>
     <p>Visualisation des indicateurs de performance</p>
@@ -61,6 +80,6 @@
   <section class="content" aria-label="Tableau de bord des indicateurs">
     <app-dashboard></app-dashboard>
   </section>
-</main>
 
-<router-outlet />
+  <router-outlet />
+</main>
