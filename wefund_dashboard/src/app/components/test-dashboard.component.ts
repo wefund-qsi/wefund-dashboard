@@ -18,12 +18,12 @@ registerLocaleData(localeFr);
         
         <div class="date-filters">
           <div class="date-input">
-            <label>Début</label>
-            <input type="date" [(ngModel)]="startDate" (change)="refreshData()">
+            <label for="start-date">Début</label>
+            <input id="start-date" type="date" [(ngModel)]="startDate" (change)="refreshData()">
           </div>
           <div class="date-input">
-            <label>Fin</label>
-            <input type="date" [(ngModel)]="endDate" (change)="refreshData()">
+            <label for="end-date">Fin</label>
+            <input id="end-date" type="date" [(ngModel)]="endDate" (change)="refreshData()">
           </div>
         </div>
 
@@ -149,11 +149,11 @@ export class TestDashboardComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.refreshData();
   }
 
-  refreshData() {
+  refreshData(): void {
     this.testService.getTotalCollected(this.startDate, this.endDate).subscribe({
       next: (data: TotalStats) => {
         console.log('Données reçues:', data);
@@ -161,7 +161,7 @@ export class TestDashboardComponent implements OnInit {
         // Détecter les changements manuellement car zone.js semble absent ou inactif
         this.cdr.detectChanges();
       },
-      error: (err: any) => {
+      error: (err: unknown) => {
         console.error('Erreur lors de la récupération des stats:', err);
       }
     });

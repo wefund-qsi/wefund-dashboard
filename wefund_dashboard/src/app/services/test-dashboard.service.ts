@@ -26,9 +26,9 @@ export class TestDashboardService {
    * @param endDate Date de fin au format YYYY-MM-DD
    */
   getTotalCollected(startDate?: string, endDate?: string): Observable<TotalStats> {
-    const params: any = {};
-    if (startDate) params.startDate = startDate;
-    if (endDate) params.endDate = endDate;
+    const params: Record<string, string> = {};
+    if (startDate) params['startDate'] = startDate;
+    if (endDate) params['endDate'] = endDate;
     
     return this.http.get<TotalStats>(this.apiUrl, { params });
   }

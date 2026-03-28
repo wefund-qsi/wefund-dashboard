@@ -3,7 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import { Observable } from 'rxjs';
 import { IndicatorService, RawDataPoint } from '../../services/indicator.service';
+
+interface IndicatorOption {
+  id: string;
+  label: string;
+  color: string;
+  bg: string;
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -50,6 +58,8 @@ import { IndicatorService, RawDataPoint } from '../../services/indicator.service
 
       <div class="chart-wrapper" *ngIf="chartData()">
         <canvas baseChart
+          role="img"
+          [attr.aria-label]="'Graphique : ' + selectedIndicatorLabel"
           [data]="chartData()!"
           [options]="chartOptions"
           [type]="chartType">
@@ -138,13 +148,13 @@ import { IndicatorService, RawDataPoint } from '../../services/indicator.service
   `]
 })
 export class DashboardComponent implements OnInit {
-  indicatorOptions = [
+  indicatorOptions: IndicatorOption[] = [
     { id: 'campaigns', label: 'Campagnes Actives', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.1)' },
     { id: 'collected', label: 'Montant Collecté', color: '#10b981', bg: 'rgba(16, 185, 129, 0.1)' },
     { id: 'success', label: 'Taux de Succès', color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)' }
   ];
 
-  selectedIndicatorId = 'campaigns';
+  selectedIndicatorId: string = 'campaigns';
   startDate: string = '';
   endDate: string = '';
 
@@ -177,6 +187,10 @@ export class DashboardComponent implements OnInit {
     }
   };
 
+  get selectedIndicatorLabel(): string {
+    return this.indicatorOptions.find(o => o.id === this.selectedIndicatorId)?.label ?? '';
+  }
+
   constructor(private indicatorService: IndicatorService) {
     const end = new Date();
     const start = new Date();
@@ -186,12 +200,12 @@ export class DashboardComponent implements OnInit {
     this.startDate = start.toISOString().split('T')[0];
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadData();
   }
 
-  loadData() {
-    let obs$;
+  loadData(): void {
+    let obs$: Observable<RawDataPoint[]>;
     const selectedOption = this.indicatorOptions.find(o => o.id === this.selectedIndicatorId);
 
     switch (this.selectedIndicatorId) {
