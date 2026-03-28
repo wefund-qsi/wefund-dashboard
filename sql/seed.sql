@@ -1,0 +1,287 @@
+INSERT INTO "user" (id, nom, prenom, username) VALUES
+  ('44444444-4444-4444-4444-444444444001', 'Dupont',    'Alice',    'alice.dupont'),
+  ('44444444-4444-4444-4444-444444444002', 'Martin',    'Benoit',   'benoit.martin'),
+  ('44444444-4444-4444-4444-444444444003', 'Nguyen',    'Camille',  'camille.nguyen'),
+  ('44444444-4444-4444-4444-444444444004', 'Diallo',    'David',    'david.diallo'),
+  ('44444444-4444-4444-4444-444444444005', 'Lopez',     'Emma',     'emma.lopez'),
+  ('44444444-4444-4444-4444-444444444006', 'Bernard',   'Farid',    'farid.bernard'),
+  ('44444444-4444-4444-4444-444444444007', 'Petit',     'Grace',    'grace.petit'),
+  ('44444444-4444-4444-4444-444444444008', 'Robert',    'Hugo',     'hugo.robert'),
+  ('44444444-4444-4444-4444-444444444009', 'Richard',   'Inès',     'ines.richard'),
+  ('44444444-4444-4444-4444-444444444010', 'Simon',     'Jules',    'jules.simon'),
+  ('44444444-4444-4444-4444-444444444011', 'Michel',    'Karine',   'karine.michel'),
+  ('44444444-4444-4444-4444-444444444012', 'Leroy',     'Luca',     'luca.leroy'),
+  ('44444444-4444-4444-4444-444444444013', 'Moreau',    'Marie',    'marie.moreau'),
+  ('44444444-4444-4444-4444-444444444014', 'Thomas',    'Nathan',   'nathan.thomas'),
+  ('44444444-4444-4444-4444-444444444015', 'Garcia',    'Olivia',   'olivia.garcia'),
+  ('44444444-4444-4444-4444-444444444016', 'Martinez',  'Pierre',   'pierre.martinez'),
+  ('44444444-4444-4444-4444-444444444017', 'Fontaine',  'Quentin',  'quentin.fontaine'),
+  ('44444444-4444-4444-4444-444444444018', 'Lefebvre',  'Rachel',   'rachel.lefebvre'),
+  ('44444444-4444-4444-4444-444444444019', 'Girard',    'Samuel',   'samuel.girard'),
+  ('44444444-4444-4444-4444-444444444020', 'Bonnet',    'Tania',    'tania.bonnet');
+ 
+INSERT INTO "auth" (id, password, "userId") VALUES
+  (1,  'hash_pwd_1',  '44444444-4444-4444-4444-444444444001'),
+  (2,  'hash_pwd_2',  '44444444-4444-4444-4444-444444444002'),
+  (3,  'hash_pwd_3',  '44444444-4444-4444-4444-444444444003'),
+  (4,  'hash_pwd_4',  '44444444-4444-4444-4444-444444444004'),
+  (5,  'hash_pwd_5',  '44444444-4444-4444-4444-444444444005'),
+  (6,  'hash_pwd_6',  '44444444-4444-4444-4444-444444444006'),
+  (7,  'hash_pwd_7',  '44444444-4444-4444-4444-444444444007'),
+  (8,  'hash_pwd_8',  '44444444-4444-4444-4444-444444444008'),
+  (9,  'hash_pwd_9',  '44444444-4444-4444-4444-444444444009'),
+  (10, 'hash_pwd_10', '44444444-4444-4444-4444-444444444010'),
+  (11, 'hash_pwd_11', '44444444-4444-4444-4444-444444444011'),
+  (12, 'hash_pwd_12', '44444444-4444-4444-4444-444444444012'),
+  (13, 'hash_pwd_13', '44444444-4444-4444-4444-444444444013'),
+  (14, 'hash_pwd_14', '44444444-4444-4444-4444-444444444014'),
+  (15, 'hash_pwd_15', '44444444-4444-4444-4444-444444444015'),
+  (16, 'hash_pwd_16', '44444444-4444-4444-4444-444444444016'),
+  (17, 'hash_pwd_17', '44444444-4444-4444-4444-444444444017'),
+  (18, 'hash_pwd_18', '44444444-4444-4444-4444-444444444018'),
+  (19, 'hash_pwd_19', '44444444-4444-4444-4444-444444444019'),
+  (20, 'hash_pwd_20', '44444444-4444-4444-4444-444444444020');
+ 
+INSERT INTO "role" (id, role, "userId") VALUES
+  (1,  'ADMINISTRATEUR', '44444444-4444-4444-4444-444444444001'),
+  (2,  'USER',           '44444444-4444-4444-4444-444444444002'),
+  (3,  'USER',           '44444444-4444-4444-4444-444444444003'),
+  (4,  'USER',           '44444444-4444-4444-4444-444444444004'),
+  (5,  'USER',           '44444444-4444-4444-4444-444444444005'),
+  (6,  'USER',           '44444444-4444-4444-4444-444444444006'),
+  (7,  'USER',           '44444444-4444-4444-4444-444444444007'),
+  (8,  'USER',           '44444444-4444-4444-4444-444444444008'),
+  (9,  'USER',           '44444444-4444-4444-4444-444444444009'),
+  (10, 'USER',           '44444444-4444-4444-4444-444444444010'),
+  (11, 'USER',           '44444444-4444-4444-4444-444444444011'),
+  (12, 'USER',           '44444444-4444-4444-4444-444444444012'),
+  (13, 'USER',           '44444444-4444-4444-4444-444444444013'),
+  (14, 'USER',           '44444444-4444-4444-4444-444444444014'),
+  (15, 'USER',           '44444444-4444-4444-4444-444444444015'),
+  (16, 'USER',           '44444444-4444-4444-4444-444444444016'),
+  (17, 'USER',           '44444444-4444-4444-4444-444444444017'),
+  (18, 'USER',           '44444444-4444-4444-4444-444444444018'),
+  (19, 'USER',           '44444444-4444-4444-4444-444444444019'),
+  (20, 'USER',           '44444444-4444-4444-4444-444444444020');
+ 
+INSERT INTO projects (id, titre, description, photo, "porteurId", "createdAt", "updatedAt") VALUES
+  ('11111111-1111-1111-1111-111111111001', 'Projet Eau Solidaire',      'Accès à l eau potable en zone rurale',          'p1.jpg',  'porteur_p1',  (CURRENT_DATE - interval '90 days')::timestamp, (CURRENT_DATE - interval '89 days')::timestamp),
+  ('11111111-1111-1111-1111-111111111002', 'Projet École Connectée',    'Matériel numérique pour écoles isolées',        'p2.jpg',  'porteur_p2',  (CURRENT_DATE - interval '80 days')::timestamp, (CURRENT_DATE - interval '79 days')::timestamp),
+  ('11111111-1111-1111-1111-111111111003', 'Projet Santé Mobile',       'Clinique mobile en zone rurale',                'p3.jpg',  'porteur_p3',  (CURRENT_DATE - interval '70 days')::timestamp, (CURRENT_DATE - interval '69 days')::timestamp),
+  ('11111111-1111-1111-1111-111111111004', 'Projet Reboisement',        'Planter 10 000 arbres en 6 mois',               'p4.jpg',  'porteur_p4',  (CURRENT_DATE - interval '60 days')::timestamp, (CURRENT_DATE - interval '59 days')::timestamp),
+  ('11111111-1111-1111-1111-111111111005', 'Projet Formation Pro',      'Ateliers de formation professionnelle',         'p5.jpg',  'porteur_p5',  (CURRENT_DATE - interval '50 days')::timestamp, (CURRENT_DATE - interval '49 days')::timestamp),
+  ('11111111-1111-1111-1111-111111111006', 'Projet Énergie Solaire',    'Panneaux solaires pour villages',               'p6.jpg',  'porteur_p6',  (CURRENT_DATE - interval '45 days')::timestamp, (CURRENT_DATE - interval '44 days')::timestamp),
+  ('11111111-1111-1111-1111-111111111007', 'Projet Agriculture Bio',    'Soutien aux agriculteurs biologiques',          'p7.jpg',  'porteur_p7',  (CURRENT_DATE - interval '40 days')::timestamp, (CURRENT_DATE - interval '39 days')::timestamp),
+  ('11111111-1111-1111-1111-111111111008', 'Projet Micro-Crédit',       'Micro-crédits pour entrepreneurs locaux',       'p8.jpg',  'porteur_p8',  (CURRENT_DATE - interval '35 days')::timestamp, (CURRENT_DATE - interval '34 days')::timestamp),
+  ('11111111-1111-1111-1111-111111111009', 'Projet Culture Locale',     'Préservation du patrimoine culturel',           'p9.jpg',  'porteur_p9',  (CURRENT_DATE - interval '25 days')::timestamp, (CURRENT_DATE - interval '24 days')::timestamp),
+  ('11111111-1111-1111-1111-111111111010', 'Projet Sport pour Tous',    'Équipements sportifs pour quartiers défavorisés','p10.jpg', 'porteur_p10', (CURRENT_DATE - interval '15 days')::timestamp, (CURRENT_DATE - interval '14 days')::timestamp);
+ 
+ -- ============================================================
+-- CAMPAGNES (15)
+-- ============================================================
+ 
+INSERT INTO campagnes (id, titre, description, objectif, "montantCollecte", "dateFin", statut, "porteurId", "projetId", "createdAt", "updatedAt") VALUES
+  -- Campagnes ACTIVE (5)
+  ('22222222-2222-2222-2222-222222222001', 'Campagne Eau S1',        'Collecte mensuelle eau potable',         5000.00,  3200.00,  (CURRENT_DATE + interval '10 days')::timestamp, 'ACTIVE',     'porteur_p1',  '11111111-1111-1111-1111-111111111001', (CURRENT_DATE - interval '30 days')::timestamp, CURRENT_DATE::timestamp),
+  ('22222222-2222-2222-2222-222222222002', 'Campagne Santé S1',      'Médicaments essentiels',                 8000.00,  4100.00,  (CURRENT_DATE + interval '15 days')::timestamp, 'ACTIVE',     'porteur_p3',  '11111111-1111-1111-1111-111111111003', (CURRENT_DATE - interval '25 days')::timestamp, CURRENT_DATE::timestamp),
+  ('22222222-2222-2222-2222-222222222003', 'Campagne Solaire S1',    'Achat de panneaux solaires',             10000.00, 6800.00,  (CURRENT_DATE + interval '20 days')::timestamp, 'ACTIVE',     'porteur_p6',  '11111111-1111-1111-1111-111111111006', (CURRENT_DATE - interval '20 days')::timestamp, CURRENT_DATE::timestamp),
+  ('22222222-2222-2222-2222-222222222004', 'Campagne Micro-Crédit',  'Fonds micro-crédit entrepreneurs',       15000.00, 9500.00,  (CURRENT_DATE + interval '30 days')::timestamp, 'ACTIVE',     'porteur_p8',  '11111111-1111-1111-1111-111111111008', (CURRENT_DATE - interval '15 days')::timestamp, CURRENT_DATE::timestamp),
+  ('22222222-2222-2222-2222-222222222005', 'Campagne Sport S1',      'Équipements terrain de foot',            4000.00,  1200.00,  (CURRENT_DATE + interval '25 days')::timestamp, 'ACTIVE',     'porteur_p10', '11111111-1111-1111-1111-111111111010', (CURRENT_DATE - interval '10 days')::timestamp, CURRENT_DATE::timestamp),
+ 
+  -- Campagnes REUSSIE (4)
+  ('22222222-2222-2222-2222-222222222006', 'Campagne École S1',      'Tablettes et routeurs écoles',           12000.00, 12000.00, (CURRENT_DATE - interval '5 days')::timestamp,  'REUSSIE',    'porteur_p2',  '11111111-1111-1111-1111-111111111002', (CURRENT_DATE - interval '65 days')::timestamp, (CURRENT_DATE - interval '5 days')::timestamp),
+  ('22222222-2222-2222-2222-222222222007', 'Campagne Reboisement S1','Pépinière et logistique terrain',        7000.00,  7500.00,  (CURRENT_DATE - interval '10 days')::timestamp, 'REUSSIE',    'porteur_p4',  '11111111-1111-1111-1111-111111111004', (CURRENT_DATE - interval '60 days')::timestamp, (CURRENT_DATE - interval '10 days')::timestamp),
+  ('22222222-2222-2222-2222-222222222008', 'Campagne Formation S1',  'Formateurs et kits pédagogiques',        6000.00,  6200.00,  (CURRENT_DATE - interval '3 days')::timestamp,  'REUSSIE',    'porteur_p5',  '11111111-1111-1111-1111-111111111005', (CURRENT_DATE - interval '55 days')::timestamp, (CURRENT_DATE - interval '3 days')::timestamp),
+  ('22222222-2222-2222-2222-222222222009', 'Campagne Agri Bio S1',   'Semences et outils bio',                 9000.00,  9800.00,  (CURRENT_DATE - interval '7 days')::timestamp,  'REUSSIE',    'porteur_p7',  '11111111-1111-1111-1111-111111111007', (CURRENT_DATE - interval '50 days')::timestamp, (CURRENT_DATE - interval '7 days')::timestamp),
+ 
+  -- Campagnes ECHOUEE (3)
+  ('22222222-2222-2222-2222-222222222010', 'Campagne Eau S2',        'Extension réseau eau potable',           8000.00,  1800.00,  (CURRENT_DATE - interval '15 days')::timestamp, 'ECHOUEE',    'porteur_p1',  '11111111-1111-1111-1111-111111111001', (CURRENT_DATE - interval '75 days')::timestamp, (CURRENT_DATE - interval '15 days')::timestamp),
+  ('22222222-2222-2222-2222-222222222011', 'Campagne Culture S1',    'Festival patrimoine local',              5000.00,  900.00,   (CURRENT_DATE - interval '20 days')::timestamp, 'ECHOUEE',    'porteur_p9',  '11111111-1111-1111-1111-111111111009', (CURRENT_DATE - interval '70 days')::timestamp, (CURRENT_DATE - interval '20 days')::timestamp),
+  ('22222222-2222-2222-2222-222222222012', 'Campagne Sport S2',      'Piscine communautaire',                  20000.00, 3200.00,  (CURRENT_DATE - interval '12 days')::timestamp, 'ECHOUEE',    'porteur_p10', '11111111-1111-1111-1111-111111111010', (CURRENT_DATE - interval '72 days')::timestamp, (CURRENT_DATE - interval '12 days')::timestamp),
+ 
+  -- Campagnes EN_ATTENTE (3)
+  ('22222222-2222-2222-2222-222222222013', 'Campagne Solaire S2',    'Extension panneaux solaires',            12000.00, 0.00,     (CURRENT_DATE + interval '45 days')::timestamp, 'EN_ATTENTE', 'porteur_p6',  '11111111-1111-1111-1111-111111111006', CURRENT_DATE::timestamp,                        CURRENT_DATE::timestamp),
+  ('22222222-2222-2222-2222-222222222014', 'Campagne École S2',      'Laboratoire informatique',               18000.00, 0.00,     (CURRENT_DATE + interval '60 days')::timestamp, 'EN_ATTENTE', 'porteur_p2',  '11111111-1111-1111-1111-111111111002', CURRENT_DATE::timestamp,                        CURRENT_DATE::timestamp),
+  ('22222222-2222-2222-2222-222222222015', 'Campagne Santé S2',      'Ambulance et matériel médical',          25000.00, 0.00,     (CURRENT_DATE + interval '90 days')::timestamp, 'EN_ATTENTE', 'porteur_p3',  '11111111-1111-1111-1111-111111111003', CURRENT_DATE::timestamp,                        CURRENT_DATE::timestamp);
+
+  -- ============================================================
+-- NEWS (15, une par campagne)
+-- ============================================================
+ 
+INSERT INTO news (id, titre, contenu, "campagneId", "createdAt") VALUES
+  ('33333333-3333-3333-3333-333333333001', 'Lancement campagne eau',        'La collecte pour l eau potable est ouverte.',         '22222222-2222-2222-2222-222222222001', (CURRENT_DATE - interval '29 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333002', 'Nouveau jalon santé',           '50% de l objectif atteint, merci !',                  '22222222-2222-2222-2222-222222222002', (CURRENT_DATE - interval '15 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333003', 'Premier panneau installé',      'Le premier panneau solaire est posé.',                '22222222-2222-2222-2222-222222222003', (CURRENT_DATE - interval '10 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333004', 'Micro-crédit : 10 bénéficiaires','10 entrepreneurs ont reçu leur prêt.',                '22222222-2222-2222-2222-222222222004', (CURRENT_DATE - interval '8 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333005', 'Livraison équipements sport',   'Les maillots et ballons sont arrivés.',               '22222222-2222-2222-2222-222222222005', (CURRENT_DATE - interval '5 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333006', 'Objectif école atteint !',      'Merci à tous, les tablettes sont commandées.',        '22222222-2222-2222-2222-222222222006', (CURRENT_DATE - interval '6 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333007', 'Arbres plantés : 12 000 !',     'Dépassement de l objectif, 12 000 arbres plantés.',   '22222222-2222-2222-2222-222222222007', (CURRENT_DATE - interval '11 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333008', 'Formation : 80 diplômés',       '80 personnes formées grâce à votre soutien.',         '22222222-2222-2222-2222-222222222008', (CURRENT_DATE - interval '4 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333009', 'Récolte bio en hausse',         'Les agriculteurs ont augmenté leur production.',      '22222222-2222-2222-2222-222222222009', (CURRENT_DATE - interval '8 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333010', 'Campagne eau S2 clôturée',      'Objectif non atteint, fonds restitués.',              '22222222-2222-2222-2222-222222222010', (CURRENT_DATE - interval '16 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333011', 'Festival annulé',               'Faute de financement le festival est annulé.',        '22222222-2222-2222-2222-222222222011', (CURRENT_DATE - interval '21 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333012', 'Piscine : projet reporté',      'Le projet sera relancé l année prochaine.',           '22222222-2222-2222-2222-222222222012', (CURRENT_DATE - interval '13 days')::timestamp),
+  ('33333333-3333-3333-3333-333333333013', 'Solaire S2 : ouverture prévue', 'La campagne ouvrira dans 45 jours.',                  '22222222-2222-2222-2222-222222222013', CURRENT_DATE::timestamp),
+  ('33333333-3333-3333-3333-333333333014', 'Labo info : appel à dons',      'Nous préparons le lancement de la campagne.',         '22222222-2222-2222-2222-222222222014', CURRENT_DATE::timestamp),
+  ('33333333-3333-3333-3333-333333333015', 'Ambulance : campagne à venir',  'Une nouvelle campagne de grande envergure arrive.',   '22222222-2222-2222-2222-222222222015', CURRENT_DATE::timestamp);
+
+  -- ============================================================
+-- CONTRIBUTIONS (~200)
+-- Uniquement sur campagnes ACTIVE et REUSSIE
+-- Dates étalées sur les 60 derniers jours à 00:00:00
+-- ============================================================
+ 
+INSERT INTO contributions (id, montant, "campagneId", "contributeurId", "createdAt") VALUES
+ 
+  -- Campagne Eau S1 (ACTIVE) - 22222222-...-001
+  ('66666666-6666-6666-6666-660000000001', 50,   '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444001', (CURRENT_DATE - interval '28 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000002', 30,   '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444002', (CURRENT_DATE - interval '27 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000003', 100,  '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444003', (CURRENT_DATE - interval '25 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000004', 75,   '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444004', (CURRENT_DATE - interval '22 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000005', 200,  '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444005', (CURRENT_DATE - interval '20 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000006', 150,  '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444006', (CURRENT_DATE - interval '18 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000007', 80,   '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444007', (CURRENT_DATE - interval '15 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000008', 60,   '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444008', (CURRENT_DATE - interval '12 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000009', 90,   '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444009', (CURRENT_DATE - interval '10 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000010', 120,  '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444010', (CURRENT_DATE - interval '8 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000011', 45,   '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444011', (CURRENT_DATE - interval '6 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000012', 300,  '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444012', (CURRENT_DATE - interval '4 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000013', 25,   '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444013', (CURRENT_DATE - interval '2 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000014', 70,   '22222222-2222-2222-2222-222222222001', '44444444-4444-4444-4444-444444444014', (CURRENT_DATE - interval '1 day')::timestamp),
+ 
+  -- Campagne Santé S1 (ACTIVE) - 22222222-...-002
+  ('66666666-6666-6666-6666-660000000015', 100,  '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444001', (CURRENT_DATE - interval '24 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000016', 200,  '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444003', (CURRENT_DATE - interval '22 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000017', 150,  '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444005', (CURRENT_DATE - interval '20 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000018', 80,   '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444007', (CURRENT_DATE - interval '17 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000019', 60,   '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444009', (CURRENT_DATE - interval '14 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000020', 120,  '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444011', (CURRENT_DATE - interval '11 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000021', 500,  '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444013', (CURRENT_DATE - interval '9 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000022', 75,   '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444015', (CURRENT_DATE - interval '7 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000023', 90,   '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444017', (CURRENT_DATE - interval '5 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000024', 110,  '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444019', (CURRENT_DATE - interval '3 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000025', 65,   '22222222-2222-2222-2222-222222222002', '44444444-4444-4444-4444-444444444002', (CURRENT_DATE - interval '1 day')::timestamp),
+ 
+  -- Campagne Solaire S1 (ACTIVE) - 22222222-...-003
+  ('66666666-6666-6666-6666-660000000026', 500,  '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444002', (CURRENT_DATE - interval '19 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000027', 300,  '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444004', (CURRENT_DATE - interval '17 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000028', 1000, '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444006', (CURRENT_DATE - interval '15 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000029', 250,  '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444008', (CURRENT_DATE - interval '13 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000030', 400,  '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444010', (CURRENT_DATE - interval '11 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000031', 800,  '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444012', (CURRENT_DATE - interval '9 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000032', 150,  '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444014', (CURRENT_DATE - interval '7 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000033', 200,  '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444016', (CURRENT_DATE - interval '5 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000034', 350,  '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444018', (CURRENT_DATE - interval '3 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000035', 600,  '22222222-2222-2222-2222-222222222003', '44444444-4444-4444-4444-444444444020', (CURRENT_DATE - interval '1 day')::timestamp),
+ 
+  -- Campagne Micro-Crédit (ACTIVE) - 22222222-...-004
+  ('66666666-6666-6666-6666-660000000036', 1000, '22222222-2222-2222-2222-222222222004', '44444444-4444-4444-4444-444444444001', (CURRENT_DATE - interval '14 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000037', 500,  '22222222-2222-2222-2222-222222222004', '44444444-4444-4444-4444-444444444003', (CURRENT_DATE - interval '12 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000038', 2000, '22222222-2222-2222-2222-222222222004', '44444444-4444-4444-4444-444444444005', (CURRENT_DATE - interval '10 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000039', 750,  '22222222-2222-2222-2222-222222222004', '44444444-4444-4444-4444-444444444007', (CURRENT_DATE - interval '8 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000040', 300,  '22222222-2222-2222-2222-222222222004', '44444444-4444-4444-4444-444444444009', (CURRENT_DATE - interval '6 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000041', 1500, '22222222-2222-2222-2222-222222222004', '44444444-4444-4444-4444-444444444011', (CURRENT_DATE - interval '4 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000042', 450,  '22222222-2222-2222-2222-222222222004', '44444444-4444-4444-4444-444444444013', (CURRENT_DATE - interval '2 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000043', 800,  '22222222-2222-2222-2222-222222222004', '44444444-4444-4444-4444-444444444015', (CURRENT_DATE - interval '1 day')::timestamp),
+  ('66666666-6666-6666-6666-660000000044', 200,  '22222222-2222-2222-2222-222222222004', '44444444-4444-4444-4444-444444444017', CURRENT_DATE::timestamp),
+ 
+  -- Campagne Sport S1 (ACTIVE) - 22222222-...-005
+  ('66666666-6666-6666-6666-660000000045', 50,   '22222222-2222-2222-2222-222222222005', '44444444-4444-4444-4444-444444444002', (CURRENT_DATE - interval '9 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000046', 100,  '22222222-2222-2222-2222-222222222005', '44444444-4444-4444-4444-444444444004', (CURRENT_DATE - interval '7 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000047', 200,  '22222222-2222-2222-2222-222222222005', '44444444-4444-4444-4444-444444444006', (CURRENT_DATE - interval '5 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000048', 150,  '22222222-2222-2222-2222-222222222005', '44444444-4444-4444-4444-444444444008', (CURRENT_DATE - interval '3 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000049', 80,   '22222222-2222-2222-2222-222222222005', '44444444-4444-4444-4444-444444444010', (CURRENT_DATE - interval '2 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000050', 120,  '22222222-2222-2222-2222-222222222005', '44444444-4444-4444-4444-444444444012', (CURRENT_DATE - interval '1 day')::timestamp),
+ 
+  -- Campagne École S1 (REUSSIE) - 22222222-...-006
+  ('66666666-6666-6666-6666-660000000051', 500,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444001', (CURRENT_DATE - interval '60 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000052', 300,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444003', (CURRENT_DATE - interval '55 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000053', 1000, '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444005', (CURRENT_DATE - interval '50 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000054', 800,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444007', (CURRENT_DATE - interval '45 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000055', 600,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444009', (CURRENT_DATE - interval '40 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000056', 400,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444011', (CURRENT_DATE - interval '35 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000057', 200,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444013', (CURRENT_DATE - interval '30 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000058', 900,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444015', (CURRENT_DATE - interval '25 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000059', 1500, '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444017', (CURRENT_DATE - interval '20 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000060', 700,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444019', (CURRENT_DATE - interval '15 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000061', 1100, '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444002', (CURRENT_DATE - interval '10 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000062', 900,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444004', (CURRENT_DATE - interval '8 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000063', 400,  '22222222-2222-2222-2222-222222222006', '44444444-4444-4444-4444-444444444006', (CURRENT_DATE - interval '6 days')::timestamp),
+ 
+  -- Campagne Reboisement S1 (REUSSIE) - 22222222-...-007
+  ('66666666-6666-6666-6666-660000000064', 200,  '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444002', (CURRENT_DATE - interval '58 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000065', 500,  '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444004', (CURRENT_DATE - interval '52 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000066', 300,  '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444006', (CURRENT_DATE - interval '46 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000067', 1000, '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444008', (CURRENT_DATE - interval '40 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000068', 400,  '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444010', (CURRENT_DATE - interval '34 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000069', 600,  '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444012', (CURRENT_DATE - interval '28 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000070', 800,  '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444014', (CURRENT_DATE - interval '22 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000071', 350,  '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444016', (CURRENT_DATE - interval '16 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000072', 450,  '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444018', (CURRENT_DATE - interval '12 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000073', 2400, '22222222-2222-2222-2222-222222222007', '44444444-4444-4444-4444-444444444020', (CURRENT_DATE - interval '11 days')::timestamp),
+ 
+  -- Campagne Formation S1 (REUSSIE) - 22222222-...-008
+  ('66666666-6666-6666-6666-660000000074', 200,  '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444001', (CURRENT_DATE - interval '50 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000075', 500,  '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444003', (CURRENT_DATE - interval '44 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000076', 300,  '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444005', (CURRENT_DATE - interval '38 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000077', 400,  '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444007', (CURRENT_DATE - interval '32 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000078', 800,  '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444009', (CURRENT_DATE - interval '26 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000079', 600,  '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444011', (CURRENT_DATE - interval '20 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000080', 1000, '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444013', (CURRENT_DATE - interval '14 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000081', 700,  '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444015', (CURRENT_DATE - interval '8 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000082', 300,  '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444017', (CURRENT_DATE - interval '4 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000083', 400,  '22222222-2222-2222-2222-222222222008', '44444444-4444-4444-4444-444444444019', (CURRENT_DATE - interval '4 days')::timestamp),
+ 
+  -- Campagne Agri Bio S1 (REUSSIE) - 22222222-...-009
+  ('66666666-6666-6666-6666-660000000084', 300,  '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444002', (CURRENT_DATE - interval '48 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000085', 500,  '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444004', (CURRENT_DATE - interval '42 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000086', 800,  '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444006', (CURRENT_DATE - interval '36 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000087', 1000, '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444008', (CURRENT_DATE - interval '30 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000088', 600,  '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444010', (CURRENT_DATE - interval '24 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000089', 400,  '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444012', (CURRENT_DATE - interval '18 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000090', 700,  '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444014', (CURRENT_DATE - interval '12 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000091', 900,  '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444016', (CURRENT_DATE - interval '8 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000092', 1200, '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444018', (CURRENT_DATE - interval '8 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000093', 3400, '22222222-2222-2222-2222-222222222009', '44444444-4444-4444-4444-444444444020', (CURRENT_DATE - interval '8 days')::timestamp),
+ 
+  -- Campagne Eau S2 (ECHOUEE) - quelques contributions quand même - 22222222-...-010
+  ('66666666-6666-6666-6666-660000000094', 200,  '22222222-2222-2222-2222-222222222010', '44444444-4444-4444-4444-444444444001', (CURRENT_DATE - interval '70 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000095', 500,  '22222222-2222-2222-2222-222222222010', '44444444-4444-4444-4444-444444444003', (CURRENT_DATE - interval '65 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000096', 300,  '22222222-2222-2222-2222-222222222010', '44444444-4444-4444-4444-444444444005', (CURRENT_DATE - interval '60 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000097', 400,  '22222222-2222-2222-2222-222222222010', '44444444-4444-4444-4444-444444444007', (CURRENT_DATE - interval '55 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000098', 400,  '22222222-2222-2222-2222-222222222010', '44444444-4444-4444-4444-444444444009', (CURRENT_DATE - interval '50 days')::timestamp),
+ 
+  -- Campagne Culture S1 (ECHOUEE) - 22222222-...-011
+  ('66666666-6666-6666-6666-660000000099', 100,  '22222222-2222-2222-2222-222222222011', '44444444-4444-4444-4444-444444444002', (CURRENT_DATE - interval '68 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000100', 200,  '22222222-2222-2222-2222-222222222011', '44444444-4444-4444-4444-444444444004', (CURRENT_DATE - interval '62 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000101', 150,  '22222222-2222-2222-2222-222222222011', '44444444-4444-4444-4444-444444444006', (CURRENT_DATE - interval '56 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000102', 200,  '22222222-2222-2222-2222-222222222011', '44444444-4444-4444-4444-444444444008', (CURRENT_DATE - interval '50 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000103', 250,  '22222222-2222-2222-2222-222222222011', '44444444-4444-4444-4444-444444444010', (CURRENT_DATE - interval '44 days')::timestamp),
+ 
+  -- Campagne Sport S2 (ECHOUEE) - 22222222-...-012
+  ('66666666-6666-6666-6666-660000000104', 500,  '22222222-2222-2222-2222-222222222012', '44444444-4444-4444-4444-444444444011', (CURRENT_DATE - interval '70 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000105', 800,  '22222222-2222-2222-2222-222222222012', '44444444-4444-4444-4444-444444444013', (CURRENT_DATE - interval '64 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000106', 600,  '22222222-2222-2222-2222-222222222012', '44444444-4444-4444-4444-444444444015', (CURRENT_DATE - interval '58 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000107', 700,  '22222222-2222-2222-2222-222222222012', '44444444-4444-4444-4444-444444444017', (CURRENT_DATE - interval '52 days')::timestamp),
+  ('66666666-6666-6666-6666-660000000108', 600,  '22222222-2222-2222-2222-222222222012', '44444444-4444-4444-4444-444444444019', (CURRENT_DATE - interval '46 days')::timestamp);
+
+  -- ============================================================
+-- TRANSACTIONS (une par contribution, toutes captured)
+-- ============================================================
+ 
+INSERT INTO transactions (id, "paymentIntentId", montant, statut, "contributionId", "contributeurId", "createdAt", "updatedAt")
+SELECT
+  gen_random_uuid(),
+  CONCAT('pi_demo_', replace(c.id::text, '-', '')),
+  c.montant,
+  'captured'::transactions_statut_enum,
+  c.id,
+  c."contributeurId",
+  c."createdAt",
+  c."createdAt" + interval '2 minutes'
+FROM contributions c;
+
+SELECT setval(pg_get_serial_sequence('"auth"', 'id'), COALESCE((SELECT MAX(id) FROM "auth"), 1), true);
+SELECT setval(pg_get_serial_sequence('"role"', 'id'), COALESCE((SELECT MAX(id) FROM "role"), 1), true);
+ 
+COMMIT;

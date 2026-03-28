@@ -1,0 +1,85 @@
+<style>
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 1000;
+    background: #1e293b;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 8px 0;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
+  :host {
+    --primary: #3b82f6;
+    --background: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-main);
+    background: var(--background);
+    display: block;
+    min-height: 100vh;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 1.5rem;
+    gap: 3rem;
+  }
+
+  .header {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.025em;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 span {
+    background: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+<main id="main-content" class="main">
+  <header class="header">
+    <h1>WeFund <span>Dashboard</span></h1>
+    <p>Visualisation des indicateurs de performance</p>
+  </header>
+
+  <section class="content" aria-label="Tableau de bord des indicateurs">
+    <app-dashboard></app-dashboard>
+  </section>
+
+  <router-outlet />
+</main>
