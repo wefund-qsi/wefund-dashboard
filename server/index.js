@@ -59,21 +59,21 @@ app.get('/api/stats/total-collected', async (req, res) => {
   }
 });
 
-// Story 2 — Montant collecté jour par jour
+// Story 2 — Montant collecté jour par jour (avec les jours à 0)
 app.get('/api/stats/collected-per-day', async (req, res) => {
   const { startDate, endDate } = req.query;
   const start = startDate || '2000-01-01';
   const end = endDate || new Date().toISOString().split('T')[0];
   try {
     const result = await pool.query(
-      `SELECT DATE("createdAt")::text AS day, SUM(montant::numeric) AS total
-       FROM contributions
-       WHERE "createdAt" >= $1 AND "createdAt" <= $2
-       GROUP BY DATE("createdAt")
-       ORDER BY day`,
+      `SELECT days.day::text, COALESCE(SUM(c.montant::numeric), 0) AS total
+       FROM generate_series($1::date, $2::date, '1 day') AS days(day)
+       LEFT JOIN contributions c ON DATE(c."createdAt") = days.day
+       GROUP BY days.day
+       ORDER BY days.day`,
       [start, end]
     );
-    res.json(result.rows.map(r => ({ day: r.day, total: parseFloat(r.total || 0) })));
+    res.json(result.rows.map(r => ({ day: r.day, total: parseFloat(r.total) })));
   } catch (err) {
     console.error('Erreur API collected-per-day :', err);
     res.status(500).send('Erreur serveur');
@@ -102,21 +102,21 @@ app.get('/api/stats/success-rate', async (req, res) => {
   }
 });
 
-// Story 4 — Nombre de contributions jour par jour
+// Story 4 — Nombre de contributions jour par jour (avec les jours à 0)
 app.get('/api/stats/contributions-per-day', async (req, res) => {
   const { startDate, endDate } = req.query;
   const start = startDate || '2000-01-01';
   const end = endDate || new Date().toISOString().split('T')[0];
   try {
     const result = await pool.query(
-      `SELECT DATE("createdAt")::text AS day, COUNT(*) AS count
-       FROM contributions
-       WHERE "createdAt" >= $1 AND "createdAt" <= $2
-       GROUP BY DATE("createdAt")
-       ORDER BY day`,
+      `SELECT days.day::text, COALESCE(COUNT(c.id), 0)::int AS count
+       FROM generate_series($1::date, $2::date, '1 day') AS days(day)
+       LEFT JOIN contributions c ON DATE(c."createdAt") = days.day
+       GROUP BY days.day
+       ORDER BY days.day`,
       [start, end]
     );
-    res.json(result.rows.map(r => ({ day: r.day, count: parseInt(r.count) })));
+    res.json(result.rows.map(r => ({ day: r.day, count: r.count })));
   } catch (err) {
     console.error('Erreur API contributions-per-day :', err);
     res.status(500).send('Erreur serveur');
