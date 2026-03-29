@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 export interface RawDataPoint {
   label: string;
@@ -38,7 +39,7 @@ export interface AvgResponse {
   providedIn: 'root'
 })
 export class IndicatorService {
-  private readonly apiUrl = 'http://localhost:3000/api/stats';
+  private readonly apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

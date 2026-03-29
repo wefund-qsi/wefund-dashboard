@@ -14,7 +14,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --omit=dev
 
-# Frontend compilé (SSR)
+# Frontend compilé (SSR + proxy)
 COPY --from=builder /app/dist ./dist
 
 # Backend Express
@@ -22,5 +22,5 @@ COPY server ./server
 
 EXPOSE 3000 4000
 
-# Lance l'API Express (3000) et le serveur SSR Angular (4000) en parallèle
+# Lance l'API Express (3000) et le serveur SSR Angular (4000, proxifie /api → 3000)
 CMD node server/index.js & node dist/wefund_dashboard/server/server.mjs
