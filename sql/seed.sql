@@ -269,13 +269,14 @@ INSERT INTO contributions (id, montant, "campagneId", "contributeurId", "created
 -- TRANSACTIONS (une par contribution, toutes captured)
 -- ============================================================
  
-INSERT INTO transactions (id, "paymentIntentId", montant, statut, "contributionId", "contributeurId", "createdAt", "updatedAt")
+INSERT INTO transactions (id, "paymentIntentId", montant, statut, "contributionId", "campagneId", "contributeurId", "createdAt", "updatedAt")
 SELECT
   gen_random_uuid(),
   CONCAT('pi_demo_', replace(c.id::text, '-', '')),
   c.montant,
   'captured'::transactions_statut_enum,
   c.id,
+  c."campagneId",
   c."contributeurId",
   c."createdAt",
   c."createdAt" + interval '2 minutes'

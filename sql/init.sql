@@ -11,6 +11,7 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto"; -- pour gen_random_uuid()
 -- ============================================================
 
 CREATE TYPE campagnes_statut_enum AS ENUM (
+  'BROUILLON',
   'ACTIVE',
   'REUSSIE',
   'ECHOUEE',
@@ -19,7 +20,9 @@ CREATE TYPE campagnes_statut_enum AS ENUM (
 
 CREATE TYPE transactions_statut_enum AS ENUM (
   'pending',
+  'authorized',
   'captured',
+  'refunded',
   'failed'
 );
 
@@ -54,7 +57,7 @@ CREATE TABLE "auth" (
 
 CREATE TABLE "role" (
   id SERIAL PRIMARY KEY,
-  role VARCHAR(50) NOT NULL,
+  role VARCHAR(50) NOT NULL CHECK (role IN ('ADMINISTRATEUR', 'USER')),
   "userId" UUID UNIQUE NOT NULL,
   CONSTRAINT fk_role_user
     FOREIGN KEY ("userId")
@@ -82,12 +85,12 @@ CREATE TABLE projects (
 
 CREATE TABLE campagnes (
   id UUID PRIMARY KEY,
-  titre VARCHAR(255) NOT NULL,
+  titre VARCHAR(100) NOT NULL,
   description TEXT,
-  objectif NUMERIC(12,2) NOT NULL,
-  "montantCollecte" NUMERIC(12,2) NOT NULL DEFAULT 0,
+  objectif NUMERIC(10,2) NOT NULL,
+  "montantCollecte" NUMERIC(10,2) NOT NULL DEFAULT 0,
   "dateFin" TIMESTAMP NOT NULL,
-  statut campagnes_statut_enum NOT NULL,
+  statut campagnes_statut_enum NOT NULL DEFAULT 'BROUILLON',
   "porteurId" VARCHAR(100) NOT NULL,
   "projetId" UUID NOT NULL,
   "createdAt" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -148,9 +151,15 @@ CREATE TABLE transactions (
   montant NUMERIC(10,2) NOT NULL,
   statut transactions_statut_enum NOT NULL,
   "contributionId" UUID UNIQUE NOT NULL,
+  "campagneId" UUID,
   "contributeurId" UUID NOT NULL,
   "createdAt" TIMESTAMP NOT NULL,
   "updatedAt" TIMESTAMP NOT NULL,
+
+  CONSTRAINT fk_transaction_campagne
+    FOREIGN KEY ("campagneId")
+    REFERENCES campagnes(id)
+    ON DELETE SET NULL,
 
   CONSTRAINT fk_transaction_contribution
     FOREIGN KEY ("contributionId")
