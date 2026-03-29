@@ -17,9 +17,10 @@ const angularApp = new AngularNodeAppEngine();
 /**
  * Proxy /api vers le backend Express
  */
-app.use('/api', createProxyMiddleware({
+app.use(createProxyMiddleware({
   target: apiTarget,
   changeOrigin: true,
+  pathFilter: '/api',
 }));
 
 /**
